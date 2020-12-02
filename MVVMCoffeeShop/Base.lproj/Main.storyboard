@@ -101,14 +101,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Otx-cn-5NG">
-                                <rect key="frame" x="84.5" y="415" width="206" height="32"/>
-                                <segments>
-                                    <segment title="Small"/>
-                                    <segment title="Medium"/>
-                                    <segment title="Large"/>
-                                </segments>
-                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7kO-jm-5B6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -116,13 +108,11 @@
                             <constraint firstItem="Du9-G0-OO4" firstAttribute="top" secondItem="7kO-jm-5B6" secondAttribute="top" id="AQY-9K-0H3"/>
                             <constraint firstItem="NVe-81-0UE" firstAttribute="centerX" secondItem="eDL-Zz-5Pn" secondAttribute="centerX" id="CWk-e3-nwW"/>
                             <constraint firstItem="Du9-G0-OO4" firstAttribute="leading" secondItem="7kO-jm-5B6" secondAttribute="leading" id="QMS-C3-BY4"/>
-                            <constraint firstItem="AGc-2z-uYr" firstAttribute="top" secondItem="Otx-cn-5NG" secondAttribute="bottom" constant="32" id="SoG-SA-Jw2"/>
+                            <constraint firstItem="7kO-jm-5B6" firstAttribute="bottom" secondItem="NVe-81-0UE" secondAttribute="bottom" constant="113" id="Ssn-qx-Lo9"/>
                             <constraint firstItem="Du9-G0-OO4" firstAttribute="height" secondItem="eDL-Zz-5Pn" secondAttribute="height" multiplier="0.5" id="aqo-Vu-eHW"/>
-                            <constraint firstItem="Otx-cn-5NG" firstAttribute="centerX" secondItem="eDL-Zz-5Pn" secondAttribute="centerX" id="d4b-lZ-MFU"/>
                             <constraint firstItem="AGc-2z-uYr" firstAttribute="centerX" secondItem="eDL-Zz-5Pn" secondAttribute="centerX" id="oSo-DX-u0j"/>
                             <constraint firstItem="NVe-81-0UE" firstAttribute="top" secondItem="AGc-2z-uYr" secondAttribute="bottom" constant="8" symbolic="YES" id="rc4-fP-41j"/>
                             <constraint firstItem="Du9-G0-OO4" firstAttribute="width" secondItem="eDL-Zz-5Pn" secondAttribute="width" id="t29-5x-TyU"/>
-                            <constraint firstItem="Otx-cn-5NG" firstAttribute="top" secondItem="Du9-G0-OO4" secondAttribute="bottom" constant="37.5" id="xGc-IH-wH6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Order" id="s4K-zD-J45">
