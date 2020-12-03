@@ -36,6 +36,13 @@ class AddOrderViewController: UIViewController ,UITableViewDelegate, UITableView
         self.coffeeSizeSegmentedControler.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableview.cellForRow(at: indexPath)?.accessoryType = .checkmark
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableview.cellForRow(at: indexPath)?.accessoryType = .none
+    }
     
   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
