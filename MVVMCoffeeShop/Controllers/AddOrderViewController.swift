@@ -13,9 +13,11 @@ class AddOrderViewController: UIViewController ,UITableViewDelegate, UITableView
     
     private var vm = AddCoffeOrderViewModel()
     
-    private var coffeeSizeSegmentedControler : UISegmentedControl!
+    private var coffeeSizeSegmentedController : UISegmentedControl!
     
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +30,12 @@ class AddOrderViewController: UIViewController ,UITableViewDelegate, UITableView
     
     private func setupUI(){
         
-        self.coffeeSizeSegmentedControler = UISegmentedControl(items: self.vm.sizes)
-        self.coffeeSizeSegmentedControler.translatesAutoresizingMaskIntoConstraints = false
+        self.coffeeSizeSegmentedController = UISegmentedControl(items: self.vm.sizes)
+        self.coffeeSizeSegmentedController.translatesAutoresizingMaskIntoConstraints = false
         
-        self.view.addSubview(self.coffeeSizeSegmentedControler)
-        self.coffeeSizeSegmentedControler.topAnchor.constraint(equalTo: self.tableview.bottomAnchor,constant: 20).isActive = true
-        self.coffeeSizeSegmentedControler.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        self.view.addSubview(self.coffeeSizeSegmentedController)
+        self.coffeeSizeSegmentedController.topAnchor.constraint(equalTo: self.tableview.bottomAnchor,constant: 20).isActive = true
+        self.coffeeSizeSegmentedController.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -53,6 +55,25 @@ class AddOrderViewController: UIViewController ,UITableViewDelegate, UITableView
         let cell = tableview.dequeueReusableCell(withIdentifier: "CoffeeTypeTableViewCell", for : indexPath)
         cell.textLabel?.text = self.vm.types[indexPath.row]
         return cell
+    }
+    
+    @IBAction func save(){
+        
+        let name = self.nameTextField.text
+        let email = self.emailTextField.text
+        
+        let selectedSize = self.coffeeSizeSegmentedController.titleForSegment(at: self.coffeeSizeSegmentedController.selectedSegmentIndex)
+        
+        guard let indexPath = self.tableview.indexPathForSelectedRow else {
+            
+            fatalError("Error in selecting coffee")
+        }
+        
+        self.vm.name = name
+        self.vm.email = email
+        
+        self.vm.selecteedSize = selectedSize
+        self.vm.selectedType = vm.types[indexPath.row]
     }
     
     

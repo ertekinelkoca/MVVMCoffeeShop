@@ -117,9 +117,15 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add New Order" id="s4K-zD-J45">
                         <barButtonItem key="leftBarButtonItem" title="Close" id="hHS-B4-IrC"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="G3t-Mv-vKc"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="G3t-Mv-vKc">
+                            <connections>
+                                <action selector="save" destination="hej-QV-AXJ" id="0Lq-LC-R3q"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emailTextField" destination="AGc-2z-uYr" id="zNs-45-LyP"/>
+                        <outlet property="nameTextField" destination="NVe-81-0UE" id="Wra-XJ-ej2"/>
                         <outlet property="tableview" destination="Du9-G0-OO4" id="IvF-I7-es7"/>
                     </connections>
                 </viewController>
