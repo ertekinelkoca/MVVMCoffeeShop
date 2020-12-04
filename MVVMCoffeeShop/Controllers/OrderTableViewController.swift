@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class OrderViewTableController: UITableViewController {
+class OrderViewTableController: UITableViewController , AddCoffeeOrderDelegate{
     
     var orderListViewModel = OrderListViewModel()
     
@@ -17,7 +17,17 @@ class OrderViewTableController: UITableViewController {
         populateOrders()
     }
  
+    func addCoffeeOrderViewControllerDidClose(controller: UIViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
     
+    func addCoffeeOrderViewControllerDidSave(order: Order, controller: UIViewController) {
+        controller.dismiss(animated: true, completion: nil)
+        
+        let orderVM = OrderViewModel(order: order)
+        self.orderListViewModel.ordersViewModel.append(orderVM)
+        self.tableView.insertRows(at: [IndexPath.init(row: self.orderListViewModel.ordersViewModel.count - 1, section: 0)] , with: .automatic)
+    }
     
     private func populateOrders(){
         
@@ -34,6 +44,20 @@ class OrderViewTableController: UITableViewController {
         }
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        guard let navC = segue.destination as? UINavigationController,
+              let addCoffeeOrderVC = navC.viewControllers.first as? AddOrderViewController
+                else {
+                        fatalError("Error Performing Segue")
+                    }
+   
+        addCoffeeOrderVC.delegate = self
+    }
+    
+      
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
